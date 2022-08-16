@@ -27,6 +27,7 @@ body {
 .principal {
     width: 100%;
     margin-top: 92px;
+    margin-bottom: 92px;
     
 }
 
@@ -68,6 +69,19 @@ img {
 .nome {
     font-weight: 700;
     font-size: 18px;
+    margin: 5px auto;
+}
+
+.descricao {
+    color: #A6A6A6;
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.preco {
+    font-size: 16px;
+    margin-top: 22px;
 }
 
 .selecionado {
