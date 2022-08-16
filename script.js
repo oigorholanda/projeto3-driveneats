@@ -9,10 +9,15 @@ function selecionarPrato (pratoClicado) {
     if (selected !== null) {
         selected.classList.remove('selecionado');
     }
+
     //pegar o prato que foi clicado
-    console.log("o prato clicado foi", pratoClicado);
+    // tituloPrato = pratoClicado.document.querySelector('.nome');
+    console.log(pratoClicado);
+    
     //Adicionar a classe selecionado
     pratoClicado.classList.add('selecionado');
+    tituloPrato = pratoClicado.innerHTML;
+    habilitarBotao ();
 }
 
 function selecionarBebida (bebidaClicada) {
@@ -26,6 +31,8 @@ function selecionarBebida (bebidaClicada) {
     console.log("a bebida clicada foi", bebidaClicada);
     //Adicionar a classe selecionado
     bebidaClicada.classList.add('selecionado');
+    tituloBebida = bebidaClicada.innerHTML;
+    habilitarBotao ();
 }
 
 function selecionarSobremesa (sobremesaClicada) {
@@ -39,9 +46,22 @@ function selecionarSobremesa (sobremesaClicada) {
     console.log("a bebida clicada foi", sobremesaClicada);
     //Adicionar a classe selecionado
     sobremesaClicada.classList.add('selecionado');
+
+    tituloSobremesa = sobremesaClicada.innerHTML;
+    habilitarBotao ();
 }
 
+function habilitarBotao () {
+    if (tituloPrato !== undefined && tituloBebida!==undefined && tituloSobremesa!== undefined) {
+        const botao = document.querySelector('.botao');
+        botao.classList.add('verde');
+        botao.innerHTML = "Fechar pedido";
+        
+        console.log(botao);
+        
+        
+        
+        
+    } 
+}
 
-    // verificar se o prato foi selecionado
-    // verificar se a bebida foi selecionado
-    // verificar se a sobremesa foi selecionado

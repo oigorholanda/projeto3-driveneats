@@ -119,4 +119,11 @@ img {
 .botao a {
     text-decoration: none;
     color: white;
+    
+}
+
+.final .verde {
+    background-color: #32B72F;
+    color: white;
+    cursor: wait;
 }
