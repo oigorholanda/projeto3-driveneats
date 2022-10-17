@@ -70,7 +70,9 @@ function enviarPedido () {
     if (habilitado == null) {
         console.log("Itens não selecionados");
     } else {
-    let precoFinal = precoPrato.innerHTML + precoBebida.innerHTML + precoSobremesa.innerHTML;
+    let precoFinal = (`${precoPrato.innerHTML} + 
+    ${precoBebida.innerHTML} + 
+    ${precoSobremesa.innerHTML}`)
     
     const msg = encodeURIComponent (`Olá, gostaria de fazer o pedido:
     - Prato: ${tituloPrato.innerHTML}
