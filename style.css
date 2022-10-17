@@ -114,9 +114,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: wait;
 }
 
-.botao a {
+.final a {
     text-decoration: none;
     color: white;
     
@@ -125,5 +126,5 @@ img {
 .final .verde {
     background-color: #32B72F;
     color: white;
-    cursor: wait;
+    cursor: pointer;
 }

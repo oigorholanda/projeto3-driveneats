@@ -1,6 +1,10 @@
 let tituloPrato;
+let precoPrato;
 let tituloBebida;
+let precoBebida;
 let tituloSobremesa;
+let precoSobremesa;
+let habilitado;
 
 function selecionarPrato (pratoClicado) {
     // remover a classe selecionado do prato que foi marcado anteriormente
@@ -8,15 +12,14 @@ function selecionarPrato (pratoClicado) {
 
     if (selected !== null) {
         selected.classList.remove('selecionado');
-    }
-
-    //pegar o prato que foi clicado
-    // tituloPrato = pratoClicado.document.querySelector('.nome');
-    console.log(pratoClicado);
-    
+    } 
     //Adicionar a classe selecionado
     pratoClicado.classList.add('selecionado');
-    tituloPrato = pratoClicado.innerHTML;
+    //pegar o prato que foi clicado
+    tituloPrato = pratoClicado.querySelector('.nome');
+    precoPrato = pratoClicado.querySelector('.preco');
+
+    console.log(tituloPrato);
     habilitarBotao ();
 }
 
@@ -27,11 +30,13 @@ function selecionarBebida (bebidaClicada) {
     if (selected !== null) {
         selected.classList.remove('selecionado');
     }
-    //pegar a bebida que foi clicada
-    console.log("a bebida clicada foi", bebidaClicada);
     //Adicionar a classe selecionado
     bebidaClicada.classList.add('selecionado');
-    tituloBebida = bebidaClicada.innerHTML;
+    //pegar a bebida que foi clicada
+    tituloBebida = bebidaClicada.querySelector('.nome');
+    precoBebida = bebidaClicada.querySelector('.preco');
+
+    console.log(tituloBebida);
     habilitarBotao ();
 }
 
@@ -42,26 +47,39 @@ function selecionarSobremesa (sobremesaClicada) {
     if (selected !== null) {
         selected.classList.remove('selecionado');
     }
-    //pegar a sobremesa que foi clicado
-    console.log("a bebida clicada foi", sobremesaClicada);
     //Adicionar a classe selecionado
     sobremesaClicada.classList.add('selecionado');
+    //pegar a sobremesa que foi clicado
+    tituloSobremesa = sobremesaClicada.querySelector('.nome');
+    precoSobremesa = sobremesaClicada.querySelector('.preco');
 
-    tituloSobremesa = sobremesaClicada.innerHTML;
+    console.log(tituloSobremesa);
     habilitarBotao ();
 }
 
 function habilitarBotao () {
-    if (tituloPrato !== undefined && tituloBebida!==undefined && tituloSobremesa!== undefined) {
+    if (tituloPrato !== undefined && tituloBebida!== undefined && tituloSobremesa!== undefined) {
         const botao = document.querySelector('.botao');
         botao.classList.add('verde');
         botao.innerHTML = "Fechar pedido";
-        
-        console.log(botao);
-        
-        
-        
-        
+        habilitado = true;
     } 
+}
+
+function enviarPedido () {
+    if (habilitado == null) {
+        console.log("Itens não selecionados");
+    } else {
+    let precoFinal = precoPrato.innerHTML + precoBebida.innerHTML + precoSobremesa.innerHTML;
+    
+    const msg = encodeURIComponent (`Olá, gostaria de fazer o pedido:
+    - Prato: ${tituloPrato.innerHTML}
+    - Bebida: ${tituloBebida.innerHTML}
+    - Sobremesa: ${tituloSobremesa.innerHTML}
+    Total: R$ ${precoFinal}
+    `)
+
+    window.open ('https://wa.me/5561987654321?text='+ msg)
+    }
 }
 
